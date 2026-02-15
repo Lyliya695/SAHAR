@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Новый пост</h2>
+{% load static %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.media}}
+    <p> {{form.title.label_tag}}<br>{{form.title}}</p>
+    <p> {{form.image.label_tag}}<br>{{form.image}}</p>
+    <p> {{form.body.label_tag}}<br>{{form.body}}</p>
+    <p> {{form.published}}Опубликовать сразу</p>
+    <button type="submit">Создать пост</button>
+    </form>
+
+{% endblock %}

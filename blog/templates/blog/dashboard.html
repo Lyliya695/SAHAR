@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Личный кабинет</h2>
+{% if user.profile.avatar %}
+    <img src="{{ user.profile.avatar.url }}" width="120">
+{% endif %}
+
+<p>Пользователь: {{ user.username }}</p>
+<p>Почта: {{ user.email }}</p>
+<a href="{% url 'blog:password_change' %}">Сменить пароль</a>
+<!-- 0802 -->
+{% comment %} {% if user.is_staff %}
+<a href="{% url 'blog:create_post' %}">Создать новый пост</a>
+{% endif %} {% endcomment %}
+<p>О себе: {{user.profile.bio|default:"Не заполнено"}}</p>
+<a href="{% url 'blog:edit_profile' %}">Редактировать профиль</a>
+
+{% endblock %}
+
+<!-- при выходе из админки выдает ошибку -->

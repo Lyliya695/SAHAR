@@ -1,0 +1,394 @@
+/* python manage.py collectstatic --noinput --clear */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Regular.ttf');
+}
+body {
+    font-family: 'Montserrat';
+}
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+a:hover {
+    color: blue;
+}
+a:visited {
+    color: darkblue;
+}
+
+
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+main {
+    width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    background: #3498db;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+
+/* login.html */
+.form__field {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+}
+/* header base.html */
+
+/* ===== HEADER ===== */
+
+header {
+    background: #1e293b;
+    padding: 15px 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+nav {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ссылки */
+.menu a {
+    color: #e5e7eb;
+    text-decoration: none;
+    margin-right: 18px;
+    font-size: 15px;
+}
+
+.menu a:hover {
+    color: #ffffff;
+}
+
+/* правая часть (авторизация) */
+.auth__links {
+    display: flex;
+    align-items: center;
+}
+
+/* кнопка Выйти */
+.auth__links form {
+    margin: 0;
+}
+
+.auth__links button {
+    background: transparent;
+    border: 1px solid #64748b;
+    color: #e5e7eb;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.auth__links button:hover {
+    background: #334155;
+}
+
+/* корзина */
+.auth__links a:last-of-type {
+    position: relative;
+}
+
+/* Telegram ссылка */
+header > a {
+    display: block;
+    margin-top: 10px;
+    color: #93c5fd;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+header > a:hover {
+    text-decoration: underline;
+}
+/* post_list.html */
+
+h1 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #1e293b;
+}
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+}
+
+form button {
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #2563eb;
+}
+
+form a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 14px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    color: #1e293b;
+    text-decoration: none;
+}
+
+form a:hover {
+    background: #cbd5e1;
+}
+
+main > div {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+h2 {
+    margin-top: 0;
+}
+
+h2 a {
+    color: #0f172a;
+    text-decoration: none;
+}
+
+h2 a:hover {
+    color: #3b82f6;
+    text-decoration: underline;
+}
+p {
+    line-height: 1.6;
+    color: #334155;
+}
+
+p strong {
+    color: #0f172a;
+}
+img {
+    display: block;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+a[href*="post"] {
+    display: inline-block;
+    margin-top: 10px;
+    color: #3b82f6;
+    font-weight: 500;
+}
+
+a[href*="post"]:hover {
+    text-decoration: underline;
+}
+/* адаптив для планшетов */
+@media (max-width: 1024px) {
+
+    main {
+        width: 90%;
+        padding: 25px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+}
+/* адаптив для телефонов */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 15px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .auth__links {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+}
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 22px;
+    }
+
+    main {
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+}
+@media (max-width: 768px) {
+
+    form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    form a,
+    form button {
+        text-align: center;
+    }
+
+}
+@media (max-width: 768px) {
+
+    main > div {
+        padding: 15px;
+        margin: 15px 0;
+    }
+
+}
+@media (max-width: 768px) {
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+}
+/* чтобы не было горизонтального скролла */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+/* пагинация */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 40px 0;
+}
+
+.pagination a,
+.pagination span {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    text-decoration: none;
+    color: #1e293b;
+}
+
+.pagination a:hover {
+    background: #e5e7eb;
+}
+
+.pagination .current {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+
+/* стили для постов которые создаются обычным пользователем */
+/* Ограничиваем размер картинок в контенте */
+.post-content img {
+    max-width: 100%; /* Не больше ширины контейнера */
+    height: auto; /* Сохраняем пропорции */
+    max-height: 500px; /* Максимальная высота */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+/* Для маленьких экранов */
+@media (max-width: 768px) {
+    .post-content img {
+        max-height: 300px;
+    }
+}
+
+/* Убираем inline-стили которые ставит CKEditor */
+.post-content img[style*="height"],
+.post-content img[style*="width"] {
+    height: auto !important;
+    max-height: 500px !important;
+    width: auto !important;
+    max-width: 100% !important;
+}
+
+.post-detail img[style*="height"],
+.post-detail img[style*="width"] {
+    height: auto !important;
+    max-height: 500px !important;
+    width: auto !important;
+    max-width: 100% !important;
+}
+
+.post-detail img {
+    max-width: 100%; /* Не больше ширины контейнера */
+    height: auto; /* Сохраняем пропорции */
+    max-height: 500px; /* Максимальная высота */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+/* Для маленьких экранов */
+@media (max-width: 768px) {
+    .post-detail img {
+        max-height: 300px;
+    }
+}

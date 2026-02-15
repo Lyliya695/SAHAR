@@ -1,0 +1,43 @@
+
+
+
+
+
+
+
+{% extends 'base.html' %}
+{% block content %}
+<h1>Корзина</h1>
+{% for item in items %}
+    <div>
+          {% if item.product.is_service %}
+                     Услуга
+                {% else %}
+                    Товар
+                {% endif %}
+        <h3>{{ item.product.name }}</h3>
+
+{% if item.product.is_service %}
+                <p><strong>Дата записи:</strong> {{ item.booking_date|date:"d.m.Y H:i" }}</p>
+                {% if item.notes %}
+                    <p><strong>Пожелания:</strong> {{ item.notes }}</p>
+                {% endif %}
+                <p><strong>Количество повторений:</strong> {{ item.quantity }}</p>
+            {% else %}
+                <p><strong>Артикул:</strong> {{ item.product.sku|default:"—" }}</p>
+                <p><strong>Количество:</strong> {{ item.quantity }} шт.</p>
+                {% if item.notes %}
+                    <p><strong>Комментарий:</strong> {{ item.notes }}</p>
+                {% endif %}
+            {% endif %}
+                        <p><strong>Цена за ед.:</strong> {{ item.product.price }} ₽</p>
+
+        <p>Итого: {{ item.total_price }} ₽</p>
+    </div>
+    <hr>
+{% empty %}
+    <p>Корзина пуста</p>
+{% endfor %}
+<h3>Общая сумма: {{ total }} ₽</h3>
+ <a href="{% url 'blog:create_order' %}">Оформить заказ</a>
+{% endblock %}

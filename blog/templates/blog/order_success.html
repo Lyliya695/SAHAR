@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Заказ оформлен ✅</h1>
+
+<p>Номер заказа: {{ order.id }}</p>
+<p>Сумма: {{ order.total_amount }} ₽</p>
+<p>Статус оплаты: {{ order.get_status_of_payment_display }}</p>
+
+<a href="{% url 'blog:service_list' %}">Вернуться к услугам</a>
+
+{% endblock %}

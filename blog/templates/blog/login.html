@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Вход</h2>
+<form method="post">
+    <!-- 0602 - 3 шаг -->
+    {% csrf_token %}
+
+    <!-- {{ form.non_field_errors }} -->
+    
+    <div>
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.username.errors }}
+    </div>
+
+    <div>
+        {{ form.password.label_tag }}
+        {{ form.password }}
+        {{ form.password.errors }}
+    </div>
+
+    <button type="submit">Войти</button>
+    {{ form.non_field_errors }}
+
+</form>
+<!-- 0802 - 2 -->
+<p><a href="{% url 'blog:password_reset' %}">Забыли пароль?</a></p>
+
+<p>Нет аккаунта? <a href="{% url 'blog:register' %}">Зарегистрироваться</a></p>
+{% endblock %}

@@ -1,0 +1,56 @@
+
+
+
+
+
+
+
+
+
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ product.name }}</h1>
+{% if product.image %}
+    <img src="{{ product.image.url }}" width="300">
+{% endif %}
+<!-- 1302 -->
+ 
+ {% if product.is_service %}
+
+                    Услуга
+                {% else %}
+                    Товар
+                {% endif %}
+<p>{{ product.description }}</p>
+<p><strong>Цена: {{ product.price }} ₽</strong></p>
+  {% if product.is_service %}
+                {% if product.category %}
+                    <p>Категория: {{ product.get_category_display }}</p>
+                {% endif %}
+            {% else %}
+                {% if product.sku %}
+                    <p>Артикул: {{ product.sku }}</p>
+                {% endif %}
+                {% if product.stock > 0 %}
+                    <p class="in-stock">✅ В наличии: {{ product.stock }} шт.</p>
+                {% else %}
+                    <p class="out-of-stock">❌ Нет в наличии</p>
+                {% endif %}
+            {% endif %}
+<hr>
+
+ {% if product.is_service %}
+                Запись на услугу
+            {% else %}
+                Купить товар
+            {% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">  {% if product.is_service %}
+                    Записаться
+                {% else %}
+                    Добавить в корзину
+                {% endif %}</button>
+</form>
+{% endblock %}
