@@ -15,12 +15,12 @@
 {% endif %}
 <!-- 1302 -->
  
- {% if product.is_service %}
+ {% comment %} {% if product.is_service %}
 
                     Услуга
                 {% else %}
                     Товар
-                {% endif %}
+                {% endif %} {% endcomment %}
 <p>{{ product.description }}</p>
 <p><strong>Цена: {{ product.price }} ₽</strong></p>
   {% if product.is_service %}
@@ -40,15 +40,16 @@
 <hr>
 
  {% if product.is_service %}
-                Запись на услугу
+                Сформировать заказ
             {% else %}
                 Купить товар
             {% endif %}
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
+</br>
     <button type="submit">  {% if product.is_service %}
-                    Записаться
+                    Оформить заказ
                 {% else %}
                     Добавить в корзину
                 {% endif %}</button>

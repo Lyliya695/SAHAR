@@ -156,7 +156,7 @@ class CartItem(models.Model):
     # связываем заказ с конкретной услугой
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     # указываем дату и время записи на услугу
-    booking_date = models.DateTimeField(verbose_name="Дата и время записи", help_text="Когда клиент хочет получить услугу",blank=True,  null=True  )
+    booking_date = models.DateTimeField(verbose_name="Дата и время заказа", help_text="Когда клиент хочет получить услугу",blank=True,  null=True  )
     notes = models.TextField(blank=True, null=True, verbose_name="Примечание", help_text="Дополнительные пожелания клиента")
     # количество повторений,если услуга периодическая, например тренировка 2 раза в неделю
     quantity = models.PositiveIntegerField(verbose_name="Количество", default=1, validators=[MinValueValidator(1)])

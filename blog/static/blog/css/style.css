@@ -25,7 +25,7 @@ a:hover {
     color: blue;
 }
 a:visited {
-    color: darkblue;
+    color: rgb(24, 24, 150);
 }
 .container {
     padding: 0 15px;

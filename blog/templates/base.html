@@ -8,6 +8,7 @@
     <!-- 2 шаг -->
      <!-- relationship -->
 <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'blog/aos-master/dist/aos.css' %}">
 
 {% block seo %}
 <meta name="description" content="Блог о разработке, Django и веб-программировании">
@@ -138,6 +139,10 @@
 {% endif %}
 
 <script src="{% static 'blog/js/menu.js' %}"></script>
+<script src="{% static 'blog/aos-master/dist/aos.js' %}"></script>
+<script>
+  AOS.init();
+</script>
 
 {% block extra_js %}
 
